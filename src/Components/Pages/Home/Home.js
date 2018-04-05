@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Welcome extends Component {
+class HomePage extends Component {
     render() {
         return (
             <div>Hi, welcome to my blog. Maybe try clicking on my posts tab.</div>
@@ -8,4 +8,4 @@ class Welcome extends Component {
     };
 }
 
-export default Welcome;
+export default HomePage;

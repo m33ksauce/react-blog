@@ -2,16 +2,18 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import logo from './logo.svg';
 import './App.css';
-import ContentLoader from './Components/Page/ContentLoader.js';
-import BlogRoll from './Components/BlogRoll.js';
-import Welcome from './Components/Welcome.js';
+import ContentLoader from './Components/Common/ContentLoader.js';
+import BlogPage from './Components/Pages/Blog/Blog.js';
+import HomePage from './Components/Pages/Home/Home.js';
+import ContactPage from './Components/Pages/Contact/Contact.js'
 import Posts from './Api.js';
 
 class App extends Component {
   PostsApi = new Posts();
   nav = [
-    { title: "Home", component: Welcome, props: {} },
-    { title: "Blog", component: BlogRoll, props: {posts: this.PostsApi.getAllPosts()} }
+    { title: "Home", component: HomePage, props: {} },
+    { title: "Blog", component: BlogPage, props: {posts: this.PostsApi.getAllPosts()} },
+    { title: "Contact", component: ContactPage, props: {} }
   ];
   contentAreaID = "content-area";
 
@@ -35,7 +37,7 @@ class App extends Component {
             <ul key={link.title}><a href="#" 
               onClick={this.makeNavHandler(link, this.contentAreaID)}>{link.title}</a></ul>)}
         </nav>
-        <ContentLoader id={this.contentAreaID} defaultComponent={Welcome} />
+        <ContentLoader id={this.contentAreaID} defaultComponent={HomePage} />
       </div>
     );
   }
