@@ -5,13 +5,12 @@ class Post extends Component {
         super(props);
 
         this.state = {
-            key: this.props.key,
             postData: this.props.post
         }
     }
 
     render() {
-        return(<div id={this.state.key}>
+        return(<div id={this.key}>
             <b>{this.state.postData.title}</b>
             <br />
             <i>{this.state.postData.previewText}</i>
